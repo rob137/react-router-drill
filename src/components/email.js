@@ -6,18 +6,43 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './email.css';
 
 export default class Email extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			folderId: 'inbox',
+			emailId: 0
+		};
+	}
+
+	setFolderId(str) {
+		this.setState({folderId: str})
+	}
+
+	setEmailId(num) {
+		this.setState({ emailId: num })
+	}
+
 	render() {
 		return (
 			<Router>
 				<div className="email">
-					<Sidebar/>
+					<Sidebar setFolderId={(str) => this.setFolderId(str)} 
+						setEmailId={(num) => this.setEmailId(num)}
+					/>
 					<main>
-						<Route exact path='/' render={() => <EmailList folderId="inbox" />} />
-						<Route exact path='/inbox' render={() => <EmailList folderId="inbox" />} />
-						<Route exact path='/spam' render={() => <EmailList folderId="spam" />} />
+						<Route exact path='/' render={() => <EmailList folderId={this.state.folderId} />} />
+						<Route exact path='/inbox' render={() => <EmailList folderId={this.state.folderId} />} />
+						<Route exact path='/spam' render={() => <EmailList folderId={this.state.folderId} />} />
 
 						{/* <EmailList folderId={this.state.folderId}/> */}
-						{/* <SingleEmail folderId="inbox" emailId="1" /> */}
+						<Route exact path='/:folderId/:emailId' 
+							render={() => {
+								return (
+									<SingleEmail folderId={this.state.folderId} 
+										emailId={this.state.emailId} />
+								)}
+							} 
+						/>
 					</main>
 				</div>
 			</Router>

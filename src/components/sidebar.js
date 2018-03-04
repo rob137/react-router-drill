@@ -7,7 +7,7 @@ export function Sidebar(props) {
     const endpoint = `/${folder.id}`;
     return (
       <li key={folder.id} className="folder-menu-list-item">
-				<Link to={endpoint}>{folder.name}</Link>
+        <Link onClick={() => props.setFolderId(folder.id)} to={endpoint}>{folder.name}</Link>
       </li>
     )
   });
