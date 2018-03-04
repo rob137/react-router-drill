@@ -30,10 +30,8 @@ export default class Email extends React.Component {
 						setEmailId={(num) => this.setEmailId(num)}
 					/>
 					<main>
-						<Route exact path='/' render={() => <EmailList folderId={this.state.folderId} />} />
-						<Route exact path='/inbox' render={() => <EmailList folderId={this.state.folderId} />} />
-						<Route exact path='/spam' render={() => <EmailList folderId={this.state.folderId} />} />
-
+						<EmailList folderId={this.state.folderId} />
+						
 						{/* <EmailList folderId={this.state.folderId}/> */}
 						<Route exact path='/:folderId/:emailId' 
 							render={() => {
