@@ -1,19 +1,19 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import './email-list.css';
 
 export function EmailList(props) {
   const emails = props.emailList.map((email, index) => {
     return (
-			<li className="email-list-email" key={index}>
-    	  <div className="email-list-email-from">
-    	    {email.from}
-    	  </div>
-    	  <div className="email-list-email-title">
-    	    {email.title}
-    	  </div>
-    	</li>
-		)
+      <li className="email-list-email" key={index}>
+        <div className="email-list-email-from">
+          {email.from}
+        </div>
+        <div className="email-list-email-title">
+          {email.title}
+        </div>
+      </li>
+    )
   });
 
   return (
@@ -26,10 +26,9 @@ export function EmailList(props) {
   );
 }
 
-
-const mapStateToProps = (state, props) => { 
+const mapStateToProps = (state, props) => {
   const folder = state[props.folderId];
-	return {
+  return {
     folderName: folder.name,
     emailList: Object.keys(folder.emails).map(emailId =>
       folder.emails[emailId]
