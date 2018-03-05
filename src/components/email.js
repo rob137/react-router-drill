@@ -12,9 +12,12 @@ export default function Email() {
     		<Sidebar />
     		<main>
     			<Route exact path="(/|/inbox)" render={() => <EmailList folderId="inbox" />} />
-					<Route exact path='/spam' render={() => <EmailList folderId="spam" />} />
+					<Route exact path="/spam" render={() => <EmailList folderId="spam" />} />
 					
-    			{/* <SingleEmail folderId="inbox" emailId="1" /> */}
+    			<Route exact path="/:folderId/messages/:emailId" render={() => {
+						return <SingleEmail folderId="inbox" emailId="1" />
+					}}/>
+					{/* <SingleEmail folderId="inbox" emailId="1" /> */}
     		</main>
   		</div>
 		</Router>
