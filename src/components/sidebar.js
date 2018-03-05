@@ -22,7 +22,7 @@ export function Sidebar(props) {
 }
 
 const mapStateToProps = state => ({
-    folderList: Object.keys(state).map(folderId => state[folderId])
+  folderList: Object.keys(state).map(folderId => state[folderId])
 });
 
 export default connect(mapStateToProps)(Sidebar);
