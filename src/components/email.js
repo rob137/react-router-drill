@@ -14,6 +14,7 @@ export default function Email() {
     			<Route exact path="(/|/inbox)" render={() => <EmailList folderId="inbox" />} />
 					<Route exact path="/spam" render={() => <EmailList folderId="spam" />} />
 					
+					{/* <Route exact path="/:folderId/messages/:emailId" component={SingleEmail} /> */}
     			<Route exact path="/:folderId/messages/:emailId" render={() => {
 						return <SingleEmail folderId="inbox" emailId="1" />
 					}}/>
