@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Sidebar from './sidebar';
 import SingleEmail from './single-email';
 import EmailList from './email-list';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import './email.css';
 
 export default function Email() {
