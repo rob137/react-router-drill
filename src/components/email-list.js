@@ -1,20 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './email-list.css';
 
 export function EmailList(props) {
-  const emails = props.emailList.map((email, index) => {
-		return (
-			<li key={index} className="email-list-email">
-				<div className="email-list-email-from">
-					{email.from}
-				</div>
-				<div className="email-list-email-title">
-					{email.title}
-				</div>
-			</li>
-		);
-	});
+  const emails = props.emailList.map(email =>
+    <li className="email-list-email">
+      <div className="email-list-email-from">
+        {email.from}
+      </div>
+      <div className="email-list-email-title">
+        {email.title}
+      </div>
+    </li>
+  );
 
   return (
     <div className="folder">

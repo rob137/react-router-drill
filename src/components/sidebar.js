@@ -6,7 +6,7 @@ import './sidebar.css';
 export function Sidebar(props) {
 	const folders = props.folderList.map(folder =>
 		<li key={folder.id} className="folder-menu-list-item">
-			<Link to={`/${folder.name}`}> {folder.name} </Link>
+			<Link to={`/${folder.name.toLowerCase()}`}> {folder.name} </Link>
 		</li>
 	);
 
