@@ -12,7 +12,8 @@ export default function Email() {
 				<Sidebar />
 				<main>
 					<Route exact path='/' render={() => <EmailList folderId="inbox"/>} />
-					<Route exact path='/:folderId' component={Child} />
+					<Route exact path='/:folderId' component={EmailListChild} />
+					<Route exact path='/:folderId/messages/:emailId' component={SingleEmailChild} />
 					{/* <SingleEmail folderId="inbox" emailId="1" /> */}
 				</main>
 			</div>
@@ -20,8 +21,16 @@ export default function Email() {
 	);
 }
 
-const Child = ({match}) => {
+const EmailListChild = ({match}) => {
 	return (
 		<EmailList folderId={match.params.folderId}/>
+	)
+}
+
+const SingleEmailChild = ({match}) => {
+	return (
+		<SingleEmail folderId={match.params.folderId}
+			emailId={match.params.emailId} 
+		/>
 	)
 }
